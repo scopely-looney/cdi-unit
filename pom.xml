@@ -69,7 +69,16 @@
 			</plugins>
 		</pluginManagement>
 		<plugins>
-		
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.5.1</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>sonatype-nexus-staging</serverId>
+					<nexusUrl>https://oss.sonatype.org</nexusUrl>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -168,7 +177,16 @@
 		<developerConnection>scm:git:ssh://git@github.com/BrynCooke/cdi-unit.git</developerConnection>
 		<url>https://github.com/BrynCooke/cdi-unit</url>
 	</scm>
-
+	<distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<url>http://nexus.aquiris.com.br:8081/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://nexus.aquiris.com.br:8081/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

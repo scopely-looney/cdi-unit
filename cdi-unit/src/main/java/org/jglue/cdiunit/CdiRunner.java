@@ -200,6 +200,7 @@ public class CdiRunner extends BlockJUnit4ClassRunner {
 					defaultStatement.evaluate();
 
 				} finally {
+					initialContext.unbind("java:comp/BeanManager");
 					initialContext.close();
 					weld.shutdown();
 					if (oldFactory != null) {
